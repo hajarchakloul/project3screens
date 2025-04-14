@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project3screens/homescreen.dart';
+import 'package:project3screens/routes/route.dart';
+import 'package:project3screens/screens/homescreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,14 +9,22 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:Homescreen(),
-      
+      title: 'Flutter Demo',
+            initialRoute: AppRoutes.homescreen,
+
+      // الربط مع الدالة التي تولد الصفحات
+      onGenerateRoute: AppRoutes.generateRoute,
+
+      // اختياري: بإمكانك ضبط الثيم وغيره
+
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+      home:  const Homescreen(),
     );
   }
 }
-
