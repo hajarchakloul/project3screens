@@ -50,10 +50,11 @@ class _AddItemScreenState extends State<AddItemScreen> {
           "Add New Item", 
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Color(0xFF2979FF),
+            color: Color.fromARGB(255, 0, 0, 0), // Dark blue color
             fontSize: 20
-          )
+          ),
         ),
+        automaticallyImplyLeading: false, // إزالة سهم العودة
         centerTitle: true,
         elevation: 0,
         leading: IconButton(
@@ -76,9 +77,11 @@ class _AddItemScreenState extends State<AddItemScreen> {
                   decoration: BoxDecoration(
                     color: lightBlue,
                     borderRadius: BorderRadius.circular(20),
+                    // ignore: deprecated_member_use
                     border: Border.all(color: primaryBlue.withOpacity(0.3), width: 2),
                     boxShadow: [
                       BoxShadow(
+                        // ignore: deprecated_member_use
                         color: Colors.grey.withOpacity(0.1),
                         spreadRadius: 1,
                         blurRadius: 5,
@@ -92,6 +95,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                       Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
+                          // ignore: deprecated_member_use
                           color: primaryBlue.withOpacity(0.1),
                           shape: BoxShape.circle,
                         ),
@@ -279,6 +283,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 3,
@@ -307,6 +312,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
           suffixIconConstraints: const BoxConstraints(minWidth: 20, minHeight: 20),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
+            // ignore: deprecated_member_use
             borderSide: BorderSide(color: primaryBlue.withOpacity(0.3), width: 1.5),
           ),
           focusedBorder: OutlineInputBorder(

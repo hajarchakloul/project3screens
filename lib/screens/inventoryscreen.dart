@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project3screens/screens/add_item_screen.dart';
 import 'package:project3screens/screens/edit_item_screen.dart';
 import 'package:project3screens/widgets/test.dart';
-import 'dart:io';
 
 class Inventoryscreen extends StatefulWidget {
   const Inventoryscreen({super.key});
@@ -14,22 +13,74 @@ class Inventoryscreen extends StatefulWidget {
 class _InventoryscreenState extends State<Inventoryscreen> {
   final List<Map<String, dynamic>> products = [
     {
-      'name': 'Coca Cola (Seat Drink)',
+      'name': 'قفطان مغربي (ملابس)',
       'stock': '36 in Stock',
       'code': '36985214753951',
       'price': '\$15.00',
+      'image': "assets/images/qaftan1.jpg",
     },
     {
-      'name': 'Doritos (Swatch)',
+      'name': 'طاجين (اكلات)',
       'stock': '30 in Stock',
       'code': '36985214753951',
       'price': '\$05.00',
+      'image': "assets/images/tajin.png",
     },
     {
-      'name': 'Lags (Swatch)',
+      'name': 'زيت اركان (زيوت)',
       'stock': '40 in Stock',
       'code': '36985214753951',
       'price': '\$12.00',
+      'image': "assets/images/arkan.png",
+    },
+    {
+      'name': 'اتاي مغربي (مشروبات)',
+      'stock': '36 in Stock',
+      'code': '36985214753951',
+      'price': '\$15.00',
+      'image': "assets/images/atay.png",
+    },
+    {
+      'name': 'املو (اكلات)',
+      'stock': '30 in Stock',
+      'code': '36985214753951',
+      'price': '\$05.00',
+      'image': "assets/images/amlou.png",
+    },
+    {
+      'name': 'قفطان مغربي (ملابس)',
+      'stock': '36 in Stock',
+      'code': '36985214753951',
+      'price': '\$15.00',
+      'image': "assets/images/qaftan1.jpg",
+    },
+    {
+      'name': 'طاجين (اكلات)',
+      'stock': '30 in Stock',
+      'code': '36985214753951',
+      'price': '\$05.00',
+      'image': "assets/images/tajin.png",
+    },
+    {
+      'name': 'زيت اركان (زيوت)',
+      'stock': '40 in Stock',
+      'code': '36985214753951',
+      'price': '\$12.00',
+      'image': "assets/images/arkan.png",
+    },
+    {
+      'name': 'اتاي مغربي (مشروبات)',
+      'stock': '36 in Stock',
+      'code': '36985214753951',
+      'price': '\$15.00',
+      'image': "assets/images/atay.png",
+    },
+    {
+      'name': 'املو (اكلات)',
+      'stock': '30 in Stock',
+      'code': '36985214753951',
+      'price': '\$05.00',
+      'image': "assets/images/amlou.png",
     },
   ];
 
@@ -46,9 +97,9 @@ class _InventoryscreenState extends State<Inventoryscreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: const Text('Inventory'),
         centerTitle: true,
@@ -157,6 +208,7 @@ class _InventoryscreenState extends State<Inventoryscreen> {
                               stock: product['stock'] ?? 'no stock',
                               price: product['price'] ?? 'no price',
                               code: product['code'] ?? 'no code',
+                              image: product['image'],
                               index: originalIndex,
                             );
                           },
@@ -176,6 +228,7 @@ class _InventoryscreenState extends State<Inventoryscreen> {
                 borderRadius: BorderRadius.circular(16),
                 boxShadow: [
                   BoxShadow(
+                    // ignore: deprecated_member_use
                     color: Colors.blue.withOpacity(0.3),
                     spreadRadius: 1,
                     blurRadius: 6,
@@ -201,9 +254,6 @@ class _InventoryscreenState extends State<Inventoryscreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
-
-  // باقي الدوال (مثل _deleteProduct, _editProduct...) نفسها
-  // بدون تغيير، فقط أضفنا ميزة البحث كما طلبت ❤️
 
   void _deleteProduct(int index) {
     setState(() {
@@ -256,11 +306,9 @@ class _InventoryscreenState extends State<Inventoryscreen> {
     required String stock,
     required String price,
     required String code,
+    String? image,
     required int index,
   }) {
-    final product = products[index];
-    final List<File>? images = product['images'];
-
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: Dismissible(
@@ -303,7 +351,7 @@ class _InventoryscreenState extends State<Inventoryscreen> {
           stock: stock,
           price: price,
           code: code,
-          images: images,
+          image: image,
         ),
       ),
     );
@@ -314,7 +362,7 @@ class _InventoryscreenState extends State<Inventoryscreen> {
     required String stock,
     required String price,
     required String code,
-    List<File>? images,
+    String? image,
   }) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -323,6 +371,7 @@ class _InventoryscreenState extends State<Inventoryscreen> {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 4,
@@ -341,9 +390,9 @@ class _InventoryscreenState extends State<Inventoryscreen> {
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
-              child: images != null && images.isNotEmpty
-                  ? Image.file(images[0], fit: BoxFit.cover)
-                  : Image.asset('assets/images/profile.png', fit: BoxFit.cover),
+              child: image != null
+                  ? Image.asset(image, fit: BoxFit.cover)
+                  : Image.asset('assets/images/placeholder.jpg', fit: BoxFit.cover),
             ),
           ),
           const SizedBox(width: 12),

@@ -84,7 +84,7 @@ class _EditItemScreenState extends State<EditItemScreen> {
           "Edit Item", 
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Color(0xFF2979FF),
+            color: Color.fromARGB(255, 0, 0, 0),
             fontSize: 20
           )
         ),
@@ -173,9 +173,11 @@ class _EditItemScreenState extends State<EditItemScreen> {
       decoration: BoxDecoration(
         color: lightBlue,
         borderRadius: BorderRadius.circular(20),
+        // ignore: deprecated_member_use
         border: Border.all(color: primaryBlue.withOpacity(0.3), width: 2),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 5,
@@ -202,6 +204,7 @@ class _EditItemScreenState extends State<EditItemScreen> {
                     onTap: _pickImage,
                     child: Container(
                       decoration: BoxDecoration(
+                        // ignore: deprecated_member_use
                         color: primaryBlue.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(15),
                       ),
@@ -233,11 +236,11 @@ class _EditItemScreenState extends State<EditItemScreen> {
                         onTap: () => _removeImage(index),
                         child: Container(
                           padding: const EdgeInsets.all(3),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.black54,
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(Icons.close, color: Colors.white, size: 18),
+                          child: const Icon(Icons.close, color: Colors.white, size: 18),
                         ),
                       ),
                     )
@@ -302,6 +305,7 @@ class _EditItemScreenState extends State<EditItemScreen> {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
             blurRadius: 3,
@@ -330,6 +334,7 @@ class _EditItemScreenState extends State<EditItemScreen> {
           suffixIconConstraints: const BoxConstraints(minWidth: 20, minHeight: 20),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
+            // ignore: deprecated_member_use
             borderSide: BorderSide(color: primaryBlue.withOpacity(0.3), width: 1.5),
           ),
           focusedBorder: OutlineInputBorder(

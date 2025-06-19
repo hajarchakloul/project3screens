@@ -110,12 +110,12 @@ class MainFloatingActionButton extends StatelessWidget {
       height: 65,
       child: FloatingActionButton(
         backgroundColor: Colors.blue,
+        onPressed: onPressed,
         child: const Icon(
           Icons.qr_code_scanner,
           color: Colors.white,
           size: 30,
         ),
-        onPressed: onPressed,
       ),
     );
   }

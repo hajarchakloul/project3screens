@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project3screens/widgets/test.dart';
+import 'package:project3screens/screens/cart_screen.dart';
+import 'package:project3screens/widgets/test.dart'; // تأكد من وجود الملف المناسب
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -9,110 +10,169 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
+  
   List<Map<String, dynamic>> products = [
+  {
+    'productImage': "assets/images/arkan.png",
+    'productName': "زيت أركان",
+    'price': "120.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "أمينة بنحمو",
+    'time': "9:00 AM",
+    'trending': true,
+  },
+  {
+    'productImage': "assets/images/qaftan1.jpg" ,
+        'productName': "قفطان مغربي",
+    'price': "850.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "سفيان الإدريسي",
+    'time': "10:30 AM",
+    'trending': true,
+  },
     {
-      'productImage': "assets/images/profile.png",
-      'productName': "Coca-Cola",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Ahmed Ali",
-      'time': "10:00 AM",
-      'trending': true,
-    },
+    'productImage': "assets/images/tajin.png",
+    'productName': "طاجين مغربي",
+    'price': "250.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "زهرة الكتاني",
+    'time': "7:30 PM",
+    'trending': true,
+  },
+  {
+    'productImage': "assets/images/atay.png",
+    'productName': "شاي مغربي",
+    'price': "45.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "حسناء العلوي",
+    'time': "11:45 AM",
+    'trending': false,
+  },
+  {
+    'productImage': "assets/images/arkan.png",
+    'productName': "زيت أركان",
+    'price': "120.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "أمينة بنحمو",
+    'time': "9:00 AM",
+    'trending': true,
+  },
+  {
+    'productImage': "assets/images/qaftan1.jpg" ,
+        'productName': "قفطان مغربي",
+    'price': "850.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "سفيان الإدريسي",
+    'time': "10:30 AM",
+    'trending': true,
+  },
     {
-      'productImage': "assets/images/profile.png",
-      'productName': "Pepsi",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Sarah Mohamed",
-      'time': "11:15 AM",
-      'trending': false,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "Fanta",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Khaled Youssef",
-      'time': "12:30 PM",
-      'trending': true,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "Sprite",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Laila Hassan",
-      'time': "1:45 PM",
-      'trending': false,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "7UP",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Mohamed Ibrahim",
-      'time': "2:00 PM",
-      'trending': true,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "Mirinda",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Noura Samir",
-      'time': "3:15 PM",
-      'trending': false,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "Red Bull",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Amr Saeed",
-      'time': "4:30 PM",
-      'trending': true,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "Lipton Ice Tea",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Mona Abdullah",
-      'time': "5:45 PM",
-      'trending': false,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "Tropicana",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Hesham Kamal",
-      'time': "6:00 PM",
-      'trending': true,
-    },
-    {
-      'productImage': "assets/images/profile.png",
-      'productName': "Mecca Cola",
-      'userImage': "https://via.placeholder.com/40",
-      'userName': "Fatima Zahra",
-      'time': "7:15 PM",
-      'trending': false,
-    },
+    'productImage': "assets/images/tajin.png",
+    'productName': "طاجين مغربي",
+    'price': "250.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "زهرة الكتاني",
+    'time': "7:30 PM",
+    'trending': true,
+  },
+  {
+    'productImage': "assets/images/atay.png",
+    'productName': "شاي مغربي",
+    'price': "45.0",
+    'userImage': "https://via.placeholder.com/40",
+    'userName': "حسناء العلوي",
+    'time': "11:45 AM",
+    'trending': false,
+  },
+    // ... باقي المنتجات كما في السابق
   ];
 
   final List<Map<String, dynamic>> statsData = [
     {
-      'icon': Icons.inventory_2_outlined,
-      'value': '60',
-      'label': 'Out of stock',
+      'icon': Icons.inventory,
+      'value': '120',
+      'label': 'In Stock',
     },
     {
-      'icon': Icons.warning,
-      'value': '360',
-      'label': 'Low stock',
+      'icon': Icons.shopping_cart,
+      'value': '45',
+      'label': 'Orders',
     },
     {
-      'icon': Icons.shopping_basket,
-      'value': '360',
-      'label': 'Total items',
+      'icon': Icons.attach_money,
+      'value': '8500',
+      'label': 'Revenue',
     },
   ];
 
-  int _currentIndex = 0;
-  TextEditingController _searchController = TextEditingController();
+  final int _currentIndex = 0;
+  final TextEditingController _searchController = TextEditingController();
   String searchQuery = "";
+
+  // Add these properties
+  List<Map<String, dynamic>> cartItems = [];
+  
+  // Add this method to add items to cart
+  void addToCart(Map<String, dynamic> product) {
+    setState(() {
+      final existingItem = cartItems.firstWhere(
+        (item) => item['productName'] == product['productName'],
+        orElse: () => {},
+      );
+
+      if (existingItem.isEmpty) {
+        cartItems.add({
+          ...product,
+          'quantity': 1,
+        });
+      } else {
+        existingItem['quantity'] += 1;
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('${product['productName']} added to cart'),
+          duration: const Duration(seconds: 2),
+          behavior: SnackBarBehavior.floating,
+          action: SnackBarAction(
+            label: 'View Cart',
+            onPressed: () => _showCart(),
+          ),
+        ),
+      );
+    });
+  }
+
+  // Add these methods to the _HomescreenState class
+  void _showCart() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CartScreen(
+          cartItems: cartItems,
+          onRemove: _removeFromCart,
+          onUpdateQuantity: _updateCartItemQuantity,
+        ),
+      ),
+    );
+  }
+
+  void _removeFromCart(Map<String, dynamic> item) {
+    setState(() {
+      cartItems.removeWhere((cartItem) => cartItem['productName'] == item['productName']);
+    });
+  }
+
+  void _updateCartItemQuantity(Map<String, dynamic> item, int quantity) {
+    setState(() {
+      final index = cartItems.indexWhere(
+        (cartItem) => cartItem['productName'] == item['productName'],
+      );
+      if (index != -1) {
+        cartItems[index]['quantity'] = quantity;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,317 +180,309 @@ class _HomescreenState extends State<Homescreen> {
         product['productName'].toLowerCase().contains(searchQuery)).toList();
 
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      drawer: _buildDrawer(),
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        backgroundColor: Colors.grey[300],
-        leadingWidth: 70,
-        leading: Container(
-          decoration: BoxDecoration(
-              color: Colors.red, borderRadius: BorderRadius.circular(20)),
-          margin: const EdgeInsets.only(left: 17, top: 4, bottom: 4, right: 5),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              "assets/images/profile.png",
-              width: 60,
-              height: 60,
-              fit: BoxFit.fill,
-              errorBuilder: (context, error, stackTrace) {
-                return Icon(
-                  Icons.person,
-                  size: 60,
-                  color: Colors.black.withOpacity(0.7),
-                );
-              },
-            ),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: const Text(
+          "My Store",
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: const Icon(Icons.menu, color: Colors.black),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
           ),
         ),
         actions: [
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20)),
-            child: IconButton(
-                onPressed: () {}, icon: const Icon(Icons.notifications)),
+          Stack(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.shopping_cart_outlined, color: Colors.black),
+                onPressed: _showCart,
+              ),
+              if (cartItems.isNotEmpty)
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  child: Container(
+                    padding: const EdgeInsets.all(2),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    constraints: const BoxConstraints(
+                      minWidth: 20,
+                      minHeight: 20,
+                    ),
+                    child: Text(
+                      '${cartItems.length}',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+            ],
           ),
-          const Padding(padding: EdgeInsets.all(5)),
-          Container(
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(20)),
-            child: IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-          ),
-          const Padding(padding: EdgeInsets.all(5)),
+          const SizedBox(width: 8),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(12),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // search row
-            Row(
+            // Search Bar
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: TextField(
+                controller: _searchController,
+                onChanged: (value) {
+                  setState(() {
+                    searchQuery = value.toLowerCase();
+                  });
+                },
+                decoration: const InputDecoration(
+                  hintText: "Search products...",
+                  border: InputBorder.none,
+                  prefixIcon: Icon(Icons.search),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            // Statistics
+            SizedBox(
+              height: 120,
+              child: ListView.separated(
+                scrollDirection: Axis.horizontal,
+                itemCount: statsData.length,
+                separatorBuilder: (_, __) => const SizedBox(width: 12),
+                itemBuilder: (context, index) {
+                  return _buildStatsCard(statsData[index]);
+                },
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Container(
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: TextField(
-                      controller: _searchController,
-                      decoration: const InputDecoration(
-                        hintText: "Search",
-                        border: InputBorder.none,
-                        prefixIcon: Icon(Icons.search),
-                        prefixIconConstraints: BoxConstraints(minWidth: 40),
-                        contentPadding: EdgeInsets.symmetric(vertical: 10),
-                      ),
-                      onChanged: (value) {
-                        setState(() {
-                          searchQuery = value.toLowerCase();
-                        });
-                      },
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 10),
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.tune),
-                  ),
-                ),
+                Text("Popular Products", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                Text("See All", style: TextStyle(color: Colors.grey)),
               ],
             ),
-
             const SizedBox(height: 10),
-
-            // stats row
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
-                child: Row(
-                  children: statsData.asMap().entries.map((entry) {
-                    return Container(
-                      width: 150,
-                      margin: const EdgeInsets.only(right: 12),
-                      child: _buildStatsCard(entry.value),
-                    );
-                  }).toList(),
-                ),
-              ),
-            ),
-
-            const Padding(padding: EdgeInsets.all(5)),
-
-            // titles row
-            Row(children: [
-              const Expanded(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 15),
-                    child: Text(
-                      " Recent Documents",
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ),
-              ),
-              const Padding(padding: EdgeInsets.all(5)),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: Text(
-                      " View All",
-                      style: TextStyle(fontSize: 16, color: Colors.grey[600]),
-                    ),
-                  ),
-                ),
-              ),
-            ]),
-
-            const Padding(padding: EdgeInsets.all(10)),
-
-            // products list
             Expanded(
-              child: ListView.builder(
+              child: GridView.builder(
+                padding: const EdgeInsets.only(top: 10),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 12,
+                  childAspectRatio: 0.75,
+                ),
                 itemCount: filteredProducts.length,
                 itemBuilder: (context, index) {
                   final product = filteredProducts[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  blurRadius: 8,
-                                  spreadRadius: 2,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(12),
-                                  child: Image.asset(
-                                    product['productImage'],
-                                    width: 60,
-                                    height: 60,
-                                    fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) {
-                                      return const Icon(Icons.broken_image,
-                                          size: 60,
-                                          color: Color.fromARGB(255, 243, 232, 231));
-                                    },
-                                  ),
-                                ),
-                                const SizedBox(width: 12),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        product['productName'],
-                                        style: const TextStyle(
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.black,
-                                        ),
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Row(
-                                        children: [
-                                          CircleAvatar(
-                                            radius: 10,
-                                            backgroundImage:
-                                                NetworkImage(product['userImage']),
-                                            onBackgroundImageError: (_, __) =>
-                                                debugPrint("Failed to load image"),
-                                            child: const Icon(Icons.person, size: 12),
-                                          ),
-                                          const SizedBox(width: 6),
-                                          Text(
-                                            product['userName'],
-                                            style: const TextStyle(
-                                              fontSize: 14,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(height: 4),
-                                      Text(
-                                        product['time'],
-                                        style: const TextStyle(
-                                          fontSize: 12,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Icon(
-                                  product['trending']
-                                      ? Icons.trending_up
-                                      : Icons.trending_down,
-                                  color: product['trending'] ? Colors.green : Colors.red,
-                                  size: 24,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
+                  return _buildProductCard(product);
                 },
               ),
-            )
+            ),
           ],
         ),
       ),
-      floatingActionButton: MainFloatingActionButton(
-        onPressed: () {},
-      ),
+      floatingActionButton: MainFloatingActionButton(onPressed: () {}),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: MainBottomNavigationBar(
-        currentIndex: _currentIndex,
-        context: context,
-      ),
+      bottomNavigationBar: MainBottomNavigationBar(currentIndex: _currentIndex, context: context),
     );
   }
 
   Widget _buildStatsCard(Map<String, dynamic> data) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              blurRadius: 8,
-              spreadRadius: 2,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.blue.shade100,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Icon(
-                data['icon'] as IconData,
-                color: Colors.blue,
-                size: 20,
-              ),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              data['value'],
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              data['label'],
-              style: const TextStyle(
-                fontSize: 13,
-                color: Colors.grey,
-              ),
-            ),
-          ],
-        ),
+    return Container(
+      width: 120,
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          // ignore: deprecated_member_use
+          BoxShadow(color: Colors.grey.withOpacity(0.2), blurRadius: 8, offset: const Offset(0, 4)),
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(data['icon'], color: Colors.blue, size: 30),
+          const SizedBox(height: 10),
+          Text(data['value'].toString(), style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          const SizedBox(height: 4),
+          Text(data['label'], style: const TextStyle(color: Colors.grey)),
+        ],
       ),
     );
   }
+
+  Widget _buildProductCard(Map<String, dynamic> product) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          // ignore: deprecated_member_use
+          BoxShadow(color: Colors.grey.withOpacity(0.2), blurRadius: 8, offset: const Offset(0, 4)),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ClipRRect(
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+            child: Image.asset(product['productImage'], height: 120, width: double.infinity, fit: BoxFit.cover),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8),
+            child: Text(product['productName'], style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text("\$${product['price']}", style: const TextStyle(color: Colors.green, fontSize: 14, fontWeight: FontWeight.bold)),
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    const Icon(Icons.star, color: Colors.amber, size: 16),
+                    const SizedBox(width: 4),
+                    Text(
+                      product['trending'] ? "Trending" : "New",
+                      style: const TextStyle(fontSize: 12, color: Colors.grey),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  icon: const Icon(Icons.add_shopping_cart),
+                  onPressed: () => addToCart(product),
+                  color: Colors.blue,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+Widget _buildDrawer() {
+  return Drawer(
+    backgroundColor: Colors.white,
+    child: Column(
+      children: [
+        DrawerHeader(
+    decoration: const BoxDecoration(
+      borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
+      gradient: LinearGradient(
+        colors: [Color(0xFF90CAF9), Color(0xFF64B5F6)], // درجات اللون الأزرق
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+    ),
+          child: Row(
+            children: [
+              const CircleAvatar(
+                radius: 35,
+                backgroundImage: AssetImage("assets/icons/app_icon.png"),
+              ),
+              const SizedBox(width: 12),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text("مرحبًا بك 👋", style: TextStyle(fontSize: 16, color: Colors.black87)),
+                  SizedBox(height: 4),
+                  Text("هجر شقلول", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black)),
+                ],
+              ),
+            ],
+          ),
+        ),
+
+        // عناصر القائمة
+        _buildDrawerItem(Icons.home_outlined, "الرئيسية", () {
+          Navigator.pop(context);
+        }),
+        _buildDrawerItem(Icons.inventory_2_outlined, "المخزون", () {
+          Navigator.pushNamed(context, '/inventory');
+        }),
+        _buildDrawerItem(Icons.analytics_outlined, "التقارير", () {
+          Navigator.pushNamed(context, '/reports');
+        }),
+        _buildDrawerItem(Icons.settings_outlined, "الإعدادات", () {
+          Navigator.pushNamed(context, '/settings');
+        }),
+
+        const Spacer(),
+
+        // تسجيل الخروج
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ElevatedButton.icon(
+onPressed: () {
+  // يمكنك إضافة كود لحذف بيانات من SharedPreferences مثلاً
+
+Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
+},
+
+            icon: const Icon(Icons.logout, color: Colors.white),
+            label: const Text("تسجيل الخروج", style: TextStyle(color: Colors.white)),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.redAccent,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              elevation: 0,
+            ),
+          ),
+        ),
+        const SizedBox(height: 20),
+      ],
+    ),
+  );
+  }
+Widget _buildDrawerItem(IconData icon, String title, VoidCallback onTap) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+    child: InkWell(
+      borderRadius: BorderRadius.circular(15),
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Row(
+          children: [
+Icon(icon, size: 24, color: Colors.blue), // بدل Colors.teal
+            const SizedBox(width: 16),
+            Text(title, style: const TextStyle(fontSize: 16)),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+
 }

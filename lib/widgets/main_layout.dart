@@ -7,11 +7,11 @@ class MainLayout extends StatefulWidget {
   final PreferredSizeWidget? appBar; // جعله اختياريًا
 
   const MainLayout({
-    Key? key,
+    super.key,
     required this.child,
     required this.currentIndex,
     this.appBar, // إزالة required
-  }) : super(key: key);
+  });
 
   @override
   State<MainLayout> createState() => _MainLayoutState();
@@ -62,7 +62,6 @@ class _MainLayoutState extends State<MainLayout> {
             size: 30,
           ),
           onPressed: () {
-            print('تم الضغط على زر المسح!');
             // يمكنك التنقل لصفحة أخرى إذا أردت
             // Navigator.pushNamed(context, AppRoutes.addItemsScreen);
           },

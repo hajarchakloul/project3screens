@@ -23,13 +23,14 @@ environment:
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# consider running `flutter pub upgrade --major-versio`. Alternatively,
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter:
     sdk: flutter
+  fl_chart: ^0.65.0
   image_picker: 1.1.2
     
 
@@ -39,8 +40,15 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
+  flutter_launcher_icons: ^0.12.0
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -63,7 +71,16 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/images/qaftan1.jpg
+    - assets/images/arkan.png
+    - assets/images/tajin.png
+    - assets/images/atay.png
+    - assets/images/amlou.png
     - assets/icons/
+    - assets/logo.jpg
+    - assets/onboarding1.png
+    - assets/onboarding2.png
+    - assets/onboarding3.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -77,6 +94,12 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  # fonts:
+  # - family: Cairo
+  #   fonts:
+  #     - asset: assets/fonts/Cairo-Regular.ttf
+  #     - asset: assets/fonts/Cairo-Bold.ttf
+  #       weight: 700
   # fonts:
   #   - family: Schyler
   #     fonts:
